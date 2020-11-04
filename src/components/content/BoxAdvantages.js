@@ -7,7 +7,7 @@ import images from "../../images";
 
 import styles from "./BoxAdvantages.module.css";
 
-const data = [
+const DATA = [
   {
     img: images.advan1,
     text: "Лицензия на оказание юридических услуг",
@@ -34,7 +34,7 @@ const Box = ({ img, text }) => (
   </div>
 );
 
-const BoxAdvantages = () => {
+const BoxAdvantages = ({ data }) => {
   return (
     <div className={styles.wrapper}>
       <TitleText className={styles.clMargin}> {"Наши преимущества"} </TitleText>
@@ -55,4 +55,13 @@ const BoxAdvantages = () => {
   );
 };
 
-export default BoxAdvantages;
+const BoxAdvantagesContainer = (props) => {
+  const [state, setState] = useSate(DATA);
+  useEffect(() => {
+    // 1. make reuest
+    // 2. setState(response)
+  }, []);
+  return <BoxAdvantages data={state} {...props} />
+};
+
+export default BoxAdvantagesContainer;
